@@ -16,6 +16,34 @@
 
 <body>
 
+<canvas id="myChart" width="1000" height="1000"></canvas>
+  <div class="outside">
+  <div class="everything">
+    <div class=square>
+      <p class="ResultSentence">It worked. Here are your category scores: </p>
+
+
+    <table class="ResultTable" id='category'> 
+      {% for key, value in categories.items() %}
+      <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} % </td>
+      </tr>
+      {% endfor %}
+      </table>
+      
+      <br>
+    <p class="ResultSentence">Here are your answers:</p>
+    <table class="ResultTable"> 
+      {% for key, value in result.items() %}
+      <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    
 <script>
   var data = document.getElementById("category").innerText;
   var category = data.split(/[^\d]+/).filter(function(number) {return number.length > 0});
@@ -78,41 +106,13 @@
       }
     });
   </script>
-  
-  <div class=square>
-  It worked. Here are your category scores.
+    <p clas="ResultSentence">We want to help you achieve more. Press the button to share the results with us for a follow up.</p> 
+    <form action="results/email">
+    <input type="Submit" value="share">
+    </form>
 
-
-  <table id='category' border = 10> 
-    {% for key, value in categories.items() %}
-    <tr>
-      <th> {{ key }} </th>
-      <td> {{ value }} % </td>
-    </tr>
-    {% endfor %}
-    </table>
-    
-    <br>
-  Here is your answers
-    <br>
-  <table border = 10> 
-    {% for key, value in result.items() %}
-    <tr>
-      <th> {{ key }} </th>
-      <td> {{ value }} </td>
-    </tr>
-    {% endfor %}
-  </table>
-  <br>
-  <canvas id="myChart" width="1000" height="1000"></canvas>
-
-  We want to help you achieve more. Press the button to share the results with us for a follow up.
-  <form action="results/email">
-  <input type="submit" value="share">
-  </form>
-
-
-      
+  </div>
+  </div>  
 </div>
 
 
