@@ -5,8 +5,7 @@ Comments in code to guide users.
 
 HOW TO SET UP:
 1. Create file directory for assessment
-2. Download necessary flask and virtual environment
-3. Create template folder and put in result.html
+2. Download necessary flask and virtual environment (the added folders will be .vscode and venv)
 4. Enter console and run indexmaker (command is 'python indexmaker.py')
 5. Enter the IP address listed
 
