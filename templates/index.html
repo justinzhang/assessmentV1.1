@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #f1f1f1;
+    }
+    
+    #regForm {
+      background-color: #ffffff;
+      margin: 100px auto;
+      font-family: Raleway;
+      padding: 40px;
+      width: 70%;
+      min-width: 300px;
+    }
+    
+    h1 {
+      text-align: center;  
+    }
+    
+    input {
+      padding: 10px;
+      width: 100%;
+      font-size: 17px;
+      font-family: Raleway;
+      border: 1px solid #aaaaaa;
+    }
+    
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid {
+      background-color: #ffdddd;
+    }
+    
+    /* Hide all steps by default: */
+    .tab {
+      display: none;
+    }
+    
+    button {
+      background-color: #0192ff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+    
+    #prevBtn {
+      background-color: #bbbbbb;
+    }
+    
+    /* Make circles that indicate the steps of the form: */
+    .step {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;  
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+    
+    .step.active {
+      opacity: 1;
+    }
+    
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+      background-color: #0192ff;
+    }
+    body{
+    margin: 0px;
+}
+.outside{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 50px;
+    background-color: #C7C6C6;
+}
+.square{
+    display: block;
+    text-align: center;
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 14px 1px #454444;
+    border-radius: 10px;
+}
+.square2{
+    display: block;
+    text-align: left;
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 14px 1px #454444;
+    border-radius: 10px;
+}
+.section{
+    padding-top: 20px;
+}
+.description{
+    font-style: italic;
+    padding: 10px;
+    font-size: 13px;
+}
+.question{
+    font-size: 13px;
+}
+
+label[for="form"]{
+    text-align: left !important;
+    font-size: 13px;
+}
+label[for="radio"]{
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 13px;
+    font: 15px/1.7 'Open Sans', sans-serif;
+     color: #333;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+.form {
+    border-radius: 5px;
+    padding: 20px;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 25%;
+    background-color: rgb(105, 105, 105);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: #464646;
+}
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+}
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}
+.radio{
+    padding-bottom: 10px;
+}
+    </style>
+    </head>
+<body>
+
+
+
+<div class="outside">
+<form id="regForm" action="/results" method="post">
+  <h1>Assessment:</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">Contact Info:
+    <p><input placeholder="Input your Name" name="name"></p>
+    <p><input placeholder="Input your Company Name"  name="company"></p>
+    <p><input placeholder="Input your position at the Company" name="position"></p>
+    <p><input placeholder=" Input your E-mail" name="email"></p>
+  </div>
+<div class="tab">Communication:
+<p class="description">Rate your organization from 1 to 5, 1 being the least relevant and 5 being the most relevant, depending on the statement</p>
+<p class="question">You use email only for formal communication. You have other tools for sharing documents and task management.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="emailing" value="1" class="form-radio" id="q1a" >1</label>
+                <label for="radio"><input type="radio" name="emailing" value="2" class="form-radio" id="q1b">2</label>
+                <label for="radio"><input type="radio" name="emailing" value="3" class="form-radio" id="q1c">3</label>  
+                <label for="radio"><input type="radio" name="emailing" value="4" class="form-radio" id="q1d">4</label>
+                <label for="radio"><input type="radio" name="emailing" value="5" class="form-radio" id="q1e">5</label>
+                    </div> <p class="question">You use a modern IM system such as Teams or Slack that is utilized organization wide.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="messaging" value="1" class="form-radio" id="q2a" >1</label>
+                <label for="radio"><input type="radio" name="messaging" value="1" class="form-radio" id="q2b">2</label>
+                <label for="radio"><input type="radio" name="messaging" value="1" class="form-radio" id="q2c">3</label>  
+                <label for="radio"><input type="radio" name="messaging" value="5" class="form-radio" id="q2d">4</label>
+                <label for="radio"><input type="radio" name="messaging" value="5" class="form-radio" id="q2e">5</label>
+                    </div> <p class="question">You use shared calendars to see the availabilities of all schedules.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="calendar" value="1" class="form-radio" id="q3a" >1</label>
+                <label for="radio"><input type="radio" name="calendar" value="2" class="form-radio" id="q3b">2</label>
+                <label for="radio"><input type="radio" name="calendar" value="3" class="form-radio" id="q3c">3</label>  
+                <label for="radio"><input type="radio" name="calendar" value="4" class="form-radio" id="q3d">4</label>
+                <label for="radio"><input type="radio" name="calendar" value="5" class="form-radio" id="q3e">5</label>
+                    </div> <p class="question">You video call at least once a week.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="video" value="1" class="form-radio" id="q4a" >1</label>
+                <label for="radio"><input type="radio" name="video" value="2" class="form-radio" id="q4b">2</label>
+                <label for="radio"><input type="radio" name="video" value="3" class="form-radio" id="q4c">3</label>  
+                <label for="radio"><input type="radio" name="video" value="4" class="form-radio" id="q4d">4</label>
+                <label for="radio"><input type="radio" name="video" value="5" class="form-radio" id="q4e">5</label>
+                    </div> <p class="question">You voice call at least once a week.</</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="voice" value="1" class="form-radio" id="q5a" >1</label>
+                <label for="radio"><input type="radio" name="voice" value="2" class="form-radio" id="q5b">2</label>
+                <label for="radio"><input type="radio" name="voice" value="3" class="form-radio" id="q5c">3</label>  
+                <label for="radio"><input type="radio" name="voice" value="4" class="form-radio" id="q5d">4</label>
+                <label for="radio"><input type="radio" name="voice" value="5" class="form-radio" id="q5e">5</label>
+                    </div> </div><div class="tab">Collaboration:
+<p class="description">Rate your organization from 1 to 5, 1 being the least relevant and 5 being the most relevant, depending on the statement</p>
+<p class="question">All employees use one collaboration tool</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="collab" value="1" class="form-radio" id="q6a" >1</label>
+                <label for="radio"><input type="radio" name="collab" value="2" class="form-radio" id="q6b">2</label>
+                <label for="radio"><input type="radio" name="collab" value="3" class="form-radio" id="q6c">3</label>  
+                <label for="radio"><input type="radio" name="collab" value="4" class="form-radio" id="q6d">4</label>
+                <label for="radio"><input type="radio" name="collab" value="5" class="form-radio" id="q6e">5</label>
+                    </div> <p class="question">You have a secure way to share documents with people internally and externally without many complications.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="secure" value="1" class="form-radio" id="q7a" >1</label>
+                <label for="radio"><input type="radio" name="secure" value="1" class="form-radio" id="q7b">2</label>
+                <label for="radio"><input type="radio" name="secure" value="1" class="form-radio" id="q7c">3</label>  
+                <label for="radio"><input type="radio" name="secure" value="5" class="form-radio" id="q7d">4</label>
+                <label for="radio"><input type="radio" name="secure" value="5" class="form-radio" id="q7e">5</label>
+                    </div> <p class="question">Documents, files, and applications are available through mobile devices. (Android, IOS)</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="mobile" value="1" class="form-radio" id="q8a" >1</label>
+                <label for="radio"><input type="radio" name="mobile" value="1" class="form-radio" id="q8b">2</label>
+                <label for="radio"><input type="radio" name="mobile" value="1" class="form-radio" id="q8c">3</label>  
+                <label for="radio"><input type="radio" name="mobile" value="5" class="form-radio" id="q8d">4</label>
+                <label for="radio"><input type="radio" name="mobile" value="5" class="form-radio" id="q8e">5</label>
+                    </div> <p class="question">Your employees can access their business applications through one credential.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="access" value="1" class="form-radio" id="q9a" >1</label>
+                <label for="radio"><input type="radio" name="access" value="2" class="form-radio" id="q9b">2</label>
+                <label for="radio"><input type="radio" name="access" value="3" class="form-radio" id="q9c">3</label>  
+                <label for="radio"><input type="radio" name="access" value="4" class="form-radio" id="q9d">4</label>
+                <label for="radio"><input type="radio" name="access" value="5" class="form-radio" id="q9e">5</label>
+                    </div> <p class="question">You provide employees with home office technology to work remotely.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="remotely" value="1" class="form-radio" id="q10a" >1</label>
+                <label for="radio"><input type="radio" name="remotely" value="1" class="form-radio" id="q10b">2</label>
+                <label for="radio"><input type="radio" name="remotely" value="1" class="form-radio" id="q10c">3</label>  
+                <label for="radio"><input type="radio" name="remotely" value="5" class="form-radio" id="q10d">4</label>
+                <label for="radio"><input type="radio" name="remotely" value="5" class="form-radio" id="q10e">5</label>
+                    </div> </div><div class="tab">Employment:
+<p class="description">Rate your organization from 1 to 5, 1 being the least relevant and 5 being the most relevant, depending on the statement</p>
+<p class="question">Candidates go through several levels of interviews and tests in our hiring process to assess how well they may fit into our company.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="fit" value="1" class="form-radio" id="q11a" >1</label>
+                <label for="radio"><input type="radio" name="fit" value="1" class="form-radio" id="q11b">2</label>
+                <label for="radio"><input type="radio" name="fit" value="1" class="form-radio" id="q11c">3</label>  
+                <label for="radio"><input type="radio" name="fit" value="5" class="form-radio" id="q11d">4</label>
+                <label for="radio"><input type="radio" name="fit" value="5" class="form-radio" id="q11e">5</label>
+                    </div> <p class="question">You do a background check on any candidates</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="check" value="1" class="form-radio" id="q12a" >1</label>
+                <label for="radio"><input type="radio" name="check" value="1" class="form-radio" id="q12b">2</label>
+                <label for="radio"><input type="radio" name="check" value="1" class="form-radio" id="q12c">3</label>  
+                <label for="radio"><input type="radio" name="check" value="5" class="form-radio" id="q12d">4</label>
+                <label for="radio"><input type="radio" name="check" value="5" class="form-radio" id="q12e">5</label>
+                    </div> <p class="question">Candidates go through some form of a personalized hiring process.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="personalized" value="1" class="form-radio" id="q13a" >1</label>
+                <label for="radio"><input type="radio" name="personalized" value="2" class="form-radio" id="q13b">2</label>
+                <label for="radio"><input type="radio" name="personalized" value="3" class="form-radio" id="q13c">3</label>  
+                <label for="radio"><input type="radio" name="personalized" value="4" class="form-radio" id="q13d">4</label>
+                <label for="radio"><input type="radio" name="personalized" value="5" class="form-radio" id="q13e">5</label>
+                    </div> <p class="question">Do you currently hire or plan to hire employees to work remotely outside of your geographic area?</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="outside" value="1" class="form-radio" id="q14a" >1</label>
+                <label for="radio"><input type="radio" name="outside" value="1" class="form-radio" id="q14b">2</label>
+                <label for="radio"><input type="radio" name="outside" value="1" class="form-radio" id="q14c">3</label>  
+                <label for="radio"><input type="radio" name="outside" value="5" class="form-radio" id="q14d">4</label>
+                <label for="radio"><input type="radio" name="outside" value="5" class="form-radio" id="q14e">5</label>
+                    </div> <p class="question">We have a streamlined process for onboarding employees (account access, tools integration, etc.)</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="onboarding" value="1" class="form-radio" id="q15a" >1</label>
+                <label for="radio"><input type="radio" name="onboarding" value="2" class="form-radio" id="q15b">2</label>
+                <label for="radio"><input type="radio" name="onboarding" value="3" class="form-radio" id="q15c">3</label>  
+                <label for="radio"><input type="radio" name="onboarding" value="4" class="form-radio" id="q15d">4</label>
+                <label for="radio"><input type="radio" name="onboarding" value="5" class="form-radio" id="q15e">5</label>
+                    </div> </div><div class="tab">Investment:
+<p class="description">Rate your organization from 1 to 5, 1 being the least relevant and 5 being the most relevant, depending on the statement</p>
+<p class="question">You have training in technology system and tools.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="training" value="1" class="form-radio" id="q16a" >1</label>
+                <label for="radio"><input type="radio" name="training" value="1" class="form-radio" id="q16b">2</label>
+                <label for="radio"><input type="radio" name="training" value="1" class="form-radio" id="q16c">3</label>  
+                <label for="radio"><input type="radio" name="training" value="5" class="form-radio" id="q16d">4</label>
+                <label for="radio"><input type="radio" name="training" value="5" class="form-radio" id="q16e">5</label>
+                    </div> <p class="question">You have self-service portals to quickly find helpful information.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="self-service" value="1" class="form-radio" id="q17a" >1</label>
+                <label for="radio"><input type="radio" name="self-service" value="1" class="form-radio" id="q17b">2</label>
+                <label for="radio"><input type="radio" name="self-service" value="1" class="form-radio" id="q17c">3</label>  
+                <label for="radio"><input type="radio" name="self-service" value="5" class="form-radio" id="q17d">4</label>
+                <label for="radio"><input type="radio" name="self-service" value="5" class="form-radio" id="q17e">5</label>
+                    </div> <p class="question">You provide up to date hardware for staff to work from.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="hardware" value="1" class="form-radio" id="q18a" >1</label>
+                <label for="radio"><input type="radio" name="hardware" value="2" class="form-radio" id="q18b">2</label>
+                <label for="radio"><input type="radio" name="hardware" value="3" class="form-radio" id="q18c">3</label>  
+                <label for="radio"><input type="radio" name="hardware" value="4" class="form-radio" id="q18d">4</label>
+                <label for="radio"><input type="radio" name="hardware" value="5" class="form-radio" id="q18e">5</label>
+                    </div> <p class="question">You provide resources to employess to help them stay on top of their work.</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="resources" value="1" class="form-radio" id="q19a" >1</label>
+                <label for="radio"><input type="radio" name="resources" value="2" class="form-radio" id="q19b">2</label>
+                <label for="radio"><input type="radio" name="resources" value="3" class="form-radio" id="q19c">3</label>  
+                <label for="radio"><input type="radio" name="resources" value="4" class="form-radio" id="q19d">4</label>
+                <label for="radio"><input type="radio" name="resources" value="5" class="form-radio" id="q19e">5</label>
+                    </div> <p class="question">You provide emplyees with security awareness training to stay on top of latest threats</p>
+                <div class="radio">
+                <label for="radio"><input type="radio" name="security" value="1" class="form-radio" id="q20a" >1</label>
+                <label for="radio"><input type="radio" name="security" value="2" class="form-radio" id="q20b">2</label>
+                <label for="radio"><input type="radio" name="security" value="3" class="form-radio" id="q20c">3</label>  
+                <label for="radio"><input type="radio" name="security" value="4" class="form-radio" id="q20d">4</label>
+                <label for="radio"><input type="radio" name="security" value="5" class="form-radio" id="q20e">5</label>
+                    </div> </div><div style="overflow:auto;">
+<div style="float:right;">
+  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+</div>
+</div>
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;"><span class="step"></span> 
+<span class="step"></span> 
+<span class="step"></span> 
+<span class="step"></span> 
+<span class="step"></span> 
+
+</div>
+</form>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+// This function will display the specified tab of the form...
+var x = document.getElementsByClassName("tab");
+x[n].style.display = "block";
+//... and fix the Previous/Next buttons:
+if (n == 0) {
+document.getElementById("prevBtn").style.display = "none";
+} else {
+document.getElementById("prevBtn").style.display = "inline";
+}
+if (n == (x.length - 1)) {
+document.getElementById("nextBtn").innerHTML = "Submit";
+} else {
+document.getElementById("nextBtn").innerHTML = "Next";
+}
+//... and run a function that will display the correct step indicator:
+fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+// This function will figure out which tab to display
+var x = document.getElementsByClassName("tab");
+// Exit the function if any field in the current tab is invalid:
+if (n == 1 && !validateForm()) return false;
+// Hide the current tab:
+x[currentTab].style.display = "none";
+// Increase or decrease the current tab by 1:
+currentTab = currentTab + n;
+// if you have reached the end of the form...
+if (currentTab >= x.length) {
+// ... the form gets submitted:
+document.getElementById("regForm").submit();
+return false;
+}
+// Otherwise, display the correct tab:
+showTab(currentTab);
+}
+
+function validateForm() {
+// This function deals with validation of the form fields
+var x, y, i, valid = true;
+x = document.getElementsByClassName("tab");
+y = x[currentTab].getElementsByTagName("input");
+// A loop that checks every input field in the current tab:
+for (i = 0; i < y.length; i++) {
+// If a field is empty...
+if (y[i].value == "") {
+  // add an "invalid" class to the field:
+  y[i].className += " invalid";
+  // and set the current valid status to false
+  valid = false;
+}
+}
+// If the valid status is true, mark the step as finished and valid:
+if (valid) {
+document.getElementsByClassName("step")[currentTab].className += " finish";
+}
+return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+// This function removes the "active" class of all steps...
+var i, x = document.getElementsByClassName("step");
+for (i = 0; i < x.length; i++) {
+x[i].className = x[i].className.replace(" active", "");
+}
+//... and adds the "active" class on the current step:
+x[n].className += " active";
+}
+</script>
+
+</body>
+</html>

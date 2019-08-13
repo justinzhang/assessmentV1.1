@@ -1,0 +1,137 @@
+body{
+    margin: 0px;
+}
+.outside{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 50px;
+    background-color: #C7C6C6;
+}
+.square{
+    display: block;
+    text-align: center;
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 14px 1px #454444;
+    border-radius: 10px;
+}
+.square2{
+    display: block;
+    text-align: left;
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 14px 1px #454444;
+    border-radius: 10px;
+}
+.section{
+    padding-top: 20px;
+}
+.description{
+    font-style: italic;
+    padding: 10px;
+    font-size: 13px;
+}
+.question{
+    font-size: 13px;
+}
+
+label[for="form"]{
+    text-align: left !important;
+    font-size: 13px;
+}
+label[for="radio"]{
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 13px;
+    font: 15px/1.7 'Open Sans', sans-serif;
+     color: #333;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+.form {
+    border-radius: 5px;
+    padding: 20px;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 25%;
+    background-color: rgb(105, 105, 105);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: #464646;
+}
+ul {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-size: 13px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+}
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}
+.radio{
+    padding-bottom: 10px;
+}
