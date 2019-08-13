@@ -2,6 +2,7 @@
 Our Assessment project has been upgraded to include more user functionality in the form of an 'assessment maker'! Multiple changes have also been made to the UI, form pages, and modularity
 
 OVERVIEW
+
 The entire system is built in a flask framework which facilitates the python csv communication. The assessment.csv file is for the user to propagate their own index page based on the questions, name, weighted, and category filled. The indexmaker python file then groups the questions into categories and builds an html page, fully functional.
 
 Comments in code to guide users.
