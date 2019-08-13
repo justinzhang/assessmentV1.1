@@ -1,0 +1,21 @@
+question,name,weighted?,category
+You use email only for formal communication. You have other tools for sharing documents and task management.,emailing,n,Communication
+You use a modern IM system such as Teams or Slack that is utilized organization wide.,messaging,y,Communication
+You use shared calendars to see the availabilities of all schedules.,calendar,n,Communication
+All employees use one collaboration tool,collab,n,Collaboration
+You have a secure way to share documents with people internally and externally without many complications.,secure,y,Collaboration
+You video call at least once a week.,video,n,Communication
+"Documents, files, and applications are available through mobile devices. (Android, IOS)",mobile,y,Collaboration
+You voice call at least once a week.</,voice,n,Communication
+Your employees can access their business applications through one credential.,access,n,Collaboration
+You provide employees with home office technology to work remotely.,remotely,y,Collaboration
+Candidates go through several levels of interviews and tests in our hiring process to assess how well they may fit into our company.,fit,y,Employment
+You do a background check on any candidates,check,y,Employment
+You have training in technology system and tools.,training,y,Investment
+You have self-service portals to quickly find helpful information.,self-service,y,Investment
+You provide up to date hardware for staff to work from.,hardware,n,Investment
+Candidates go through some form of a personalized hiring process.,personalized,n,Employment
+Do you currently hire or plan to hire employees to work remotely outside of your geographic area?,outside,y,Employment
+You provide resources to employess to help them stay on top of their work.,resources,n,Investment
+"We have a streamlined process for onboarding employees (account access, tools integration, etc.)",onboarding,n,Employment
+You provide emplyees with security awareness training to stay on top of latest threats,security,n,Investment
