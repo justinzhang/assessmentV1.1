@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  
 
 
   <title>Assessment Results</title>
 
+  
 
 </head>
 
@@ -77,41 +78,41 @@
       }
     });
   </script>
-  <div class="outside">
-  <div class="everything">
-    <div class=square>
-      <p class="ResultSentence">It worked. Here are your category scores: </p>
+  
+  <div class=square>
+  It worked. Here are your category scores.
 
 
-    <table class="ResultTable" id='category'> 
-      {% for key, value in categories.items() %}
-      <tr>
-        <th> {{ key }} </th>
-        <td> {{ value }} % </td>
-      </tr>
-      {% endfor %}
-      </table>
-      
-      <br>
-    <p class="ResultSentence">Here are your answers:</p>
-    <table class="ResultTable"> 
-      {% for key, value in result.items() %}
-      <tr>
-        <th> {{ key }} </th>
-        <td> {{ value }} </td>
-      </tr>
-      {% endfor %}
+  <table id='category' border = 10> 
+    {% for key, value in categories.items() %}
+    <tr>
+      <th> {{ key }} </th>
+      <td> {{ value }} % </td>
+    </tr>
+    {% endfor %}
     </table>
+    
     <br>
-    <canvas id="myChart" width="1000" height="1000"></canvas>
+  Here is your answers
+    <br>
+  <table border = 10> 
+    {% for key, value in result.items() %}
+    <tr>
+      <th> {{ key }} </th>
+      <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <canvas id="myChart" width="1000" height="1000"></canvas>
 
-    <p clas="ResultSentence">We want to help you achieve more. Press the button to share the results with us for a follow up.</p> 
-    <form action="results/email">
-    <input type="Submit" value="share">
-    </form>
+  We want to help you achieve more. Press the button to share the results with us for a follow up.
+  <form action="results/email">
+  <input type="submit" value="share">
+  </form>
 
-  </div>
-  </div>  
+
+      
 </div>
 
 
