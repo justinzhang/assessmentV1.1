@@ -75,16 +75,27 @@ def index():
 	
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
-    categories = ultraFind('assessment.csv','category')
-    for category in categories:
-        categories[category] = 0
     
     if request.method == 'POST':
         result = request.form
-        categories['Communication'] = (int(result['emailing']) + int(result['messaging']) + int(result['calendar']) + int(result['video']) + int(result['voice'])) *4 #adds all the results up for COM and change it into percent
-        categories['Collaboration'] = (int(result['secure']) + int(result['collab']) + int(result['mobile']) + int(result['access']) + int(result['remotely'])) *4 #adds all the results up for COM
-        categories['Employment']    = (int(result['fit']) + int(result['check']) + int(result['personalized']) + int(result['outside']) + int(result['onboarding'])) *4  #adds all the results up for COM
-        categories['Investment']    = (int(result['training']) + int(result['self-service']) + int(result['hardware']) + int(result['resources']) + int(result['security'])) *4  #adds all the results up for COM
+        categories = ultraFind('assessment.csv','category')
+        resultValues=list(result.values())[4:]
+        index=0
+        counter=0
+        
+        for res in resultValues:
+            resultValues[counter] = int(res)
+            counter+=1
+        for category in categories:
+            catLength=len(categories[category])
+            percentify=100/(5*catLength)
+            categories[category] = int(sum(resultValues[index:index+catLength])*percentify)
+            index += catLength
+
+        #categories['Communication'] = (int(result['emailing']) + int(result['messaging']) + int(result['calendar']) + int(result['video']) + int(result['voice'])) *4 #adds all the results up for COM and change it into percent
+        #categories['Collaboration'] = (int(result['secure']) + int(result['collab']) + int(result['mobile']) + int(result['access']) + int(result['remotely'])) *4 #adds all the results up for COM
+        #categories['Employment']    = (int(result['fit']) + int(result['check']) + int(result['personalized']) + int(result['outside']) + int(result['onboarding'])) *4  #adds all the results up for COM
+        #categories['Investment']    = (int(result['training']) + int(result['self-service']) + int(result['hardware']) + int(result['resources']) + int(result['security'])) *4  #adds all the results up for COM
         csver(result)
         
     return render_template('results.HTML', categories = categories, result=result)#returns the results for HTML manipulation

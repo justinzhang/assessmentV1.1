@@ -222,19 +222,19 @@ categoryStart='''<div class="tab">CATEGORYNAME:
 '''
 categoryQuestion='''<p class="question">QUESTIONNAME</p>
                 <div class="radio">
-                <label for="radio"><input type="radio" name="QNAME" value="1" class="form-radio" id="q#a" >1</label>
-                <label for="radio"><input type="radio" name="QNAME" value="2" class="form-radio" id="q#b">2</label>
-                <label for="radio"><input type="radio" name="QNAME" value="3" class="form-radio" id="q#c">3</label>  
-                <label for="radio"><input type="radio" name="QNAME" value="4" class="form-radio" id="q#d">4</label>
-                <label for="radio"><input type="radio" name="QNAME" value="5" class="form-radio" id="q#e">5</label>
+                <label for="radio"><input type="radio" name="QNAME" value=1 class="form-radio" id="q#a" >1</label>
+                <label for="radio"><input type="radio" name="QNAME" value=2 class="form-radio" id="q#b">2</label>
+                <label for="radio"><input type="radio" name="QNAME" value=3 class="form-radio" id="q#c">3</label>  
+                <label for="radio"><input type="radio" name="QNAME" value=4 class="form-radio" id="q#d">4</label>
+                <label for="radio"><input type="radio" name="QNAME" value=5 class="form-radio" id="q#e">5</label>
                     </div> '''
 weightedQuestion='''<p class="question">QUESTIONNAME</p>
                 <div class="radio">
-                <label for="radio"><input type="radio" name="QNAME" value="1" class="form-radio" id="q#a" >1</label>
-                <label for="radio"><input type="radio" name="QNAME" value="1" class="form-radio" id="q#b">2</label>
-                <label for="radio"><input type="radio" name="QNAME" value="1" class="form-radio" id="q#c">3</label>  
-                <label for="radio"><input type="radio" name="QNAME" value="5" class="form-radio" id="q#d">4</label>
-                <label for="radio"><input type="radio" name="QNAME" value="5" class="form-radio" id="q#e">5</label>
+                <label for="radio"><input type="radio" name="QNAME" value=1 class="form-radio" id="q#a" >1</label>
+                <label for="radio"><input type="radio" name="QNAME" value=1 class="form-radio" id="q#b">2</label>
+                <label for="radio"><input type="radio" name="QNAME" value=1 class="form-radio" id="q#c">3</label>  
+                <label for="radio"><input type="radio" name="QNAME" value=5 class="form-radio" id="q#d">4</label>
+                <label for="radio"><input type="radio" name="QNAME" value=5 class="form-radio" id="q#e">5</label>
                     </div> '''
 categoryEnd='</div>'
 htmlMiddle='''<div style="overflow:auto;">
