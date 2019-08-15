@@ -16,7 +16,7 @@
 
 <body>
 
-<canvas id="myChart" width="1000" height="1000"></canvas>
+<canvas id="myChart" width="500" height="500"></canvas>
   <div class="outside">
   <div class="everything">
     <div class=square>
@@ -47,6 +47,7 @@
 <script>
   var data = document.getElementById("category").innerText;
   var category = data.split(/[^\d]+/).filter(function(number) {return number.length > 0});
+  var lableNames = data.split('\n');
   console.log("List of scores!" + category);  
     let myChart = document.getElementById('myChart').getContext('2d');
 
@@ -58,9 +59,9 @@
     let massPopChart = new Chart(myChart, {
       type:'polarArea', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['COMMUNICATION', 'COLLABORATION' , "EMPLOYMENT" , "INVESTMENT"],
+        labels:lableNames,
         datasets:[{
-          label:'this is the worst',
+          
           data:category,
           //backgroundColor:'green',
           backgroundColor:[
@@ -106,10 +107,9 @@
       }
     });
   </script>
-    <p clas="ResultSentence">We want to help you achieve more. Press the button to share the results with us for a follow up.</p> 
-    <form action="results/email">
-    <input type="Submit" value="share">
-    </form>
+    <p clas="ResultSentence">We want to help you achieve more.</p> 
+      <button onclick="window.print()">Save or Print your Results</button>
+  
 
   </div>
   </div>  
